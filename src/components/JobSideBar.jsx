@@ -1,6 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function JobSideBar({ job }) {
+import { toast } from "react-toastify";
+import { useParams, useNavigate } from "react-router-dom";
+
+function JobSideBar({ job, deleteJob }) {
+  const navigate = useNavigate();
+  const onDeleteClick = (jobId) => {
+    const confirm = window.confirm("Are you sure you want to delete this listing?");
+    if (!confirm) return;
+    deleteJob(jobId);
+    toast.success("Job deleted successfully");
+    navigate("/jobs");
+  };
   return (
     <aside>
       <div className="bg-white p-6 rounded-lg shadow-md">

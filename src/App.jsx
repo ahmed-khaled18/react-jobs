@@ -7,6 +7,7 @@ import JobsPage from "./pages/JobsPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AddJobPage from "./pages/AddJobPage";
+import EditJobPage from "./pages/EditJobPage";
 function App() {
   // Add New Job
   const addJob = async (newJob) => {

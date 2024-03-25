@@ -1,26 +1,11 @@
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import JobSideBar from "../components/JobSideBar";
 import JobPageHero from "../components/JobPageHero";
 
 const JobPage = ({ deleteJob }) => {
-  const navigate = useNavigate();
-  const { id } = useParams();
   const job = useLoaderData();
-
-  const onDeleteClick = (jobId) => {
-    const confirm = window.confirm("Are you sure you want to delete this listing?");
-
-    if (!confirm) return;
-
-    deleteJob(jobId);
-
-    toast.success("Job deleted successfully");
-
-    navigate("/jobs");
-  };
 
   return (
     <>
@@ -35,7 +20,7 @@ const JobPage = ({ deleteJob }) => {
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
             <JobPageHero job={job} />
-            <JobSideBar job={job} />
+            <JobSideBar job={job} deleteJob={deleteJob} />
           </div>
         </div>
       </section>
