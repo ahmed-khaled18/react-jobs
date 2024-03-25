@@ -8,7 +8,7 @@ function HomePage() {
     <>
       <Hero />
       <HomeCards />
-      <BrowseJobs />
+      <BrowseJobs isHome={true} />
       <ViewAllJobs />
     </>
   );
